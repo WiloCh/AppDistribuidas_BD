@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/style_card.css?1.0" type="text/css" media="all">
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-    <title>Empleados</title>
+    <title>Nominas</title>
 </head>
 <body id="body">
     <!--Menu -->
@@ -87,7 +87,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-9 col-md-8">
-                                <h1 class="font-weight-bold mb-0">Especialidad</h1>
+                                <h1 class="font-weight-bold mb-0">Nominas</h1>
                             </div>
                         </div>
                     </div>
@@ -101,20 +101,46 @@
                                     <table class="table table-bordered border-dark" style="background-color: white;">
                                         <thead>
                                             <tr>
-                                                <th scope="col">ID</th>
+                                                <th scope="col">ID Empleado</th>
+                                                <th scope="col">ID Medico</th>
+                                                <th scope="col">Centro</th>
+                                                <th scope="col">Fecha de Ingreso</th>
                                                 <th scope="col">Nombre</th>
-                                                <th scope="col">Descripcion</th>
+                                                <th scope="col">Salario</th>
+                                                <th scope="col">Dirección</th>
+                                                <th scope="col">Función</th>
+                                                <th scope="col">Experiencia</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                                foreach($response as $especialidad)
+                                                foreach($response as $nomina)
                                                 {
                                             ?>
                                             <tr>
-                                                <th scope="row"><?php echo $especialidad->cod_esp; ?></th>
-                                                <td class="empleado-item"><?php echo $especialidad->nombre_esp; ?></td>
-                                                <td class="empleado-item"><?php echo $especialidad->descrip_esp; ?></td>
+                                                <th scope="row"><?php echo $nomina->cod_emp; ?></th>
+                                                <th scope="row"><?php echo $nomina->cod_med; ?></th>
+                                                <td>
+                                                    <?php 
+                                                        switch($nomina->cod_centros) {
+                                                            case 1:
+                                                                echo "Quito";
+                                                                break;
+                                                            case 2:
+                                                                echo "Guayaquil";
+                                                                break;
+                                                            case 3:
+                                                                echo "Cuenca";
+                                                                break;
+                                                        }
+                                                    ?>
+                                                </td>
+                                                <td><?php echo $nomina->fecha_ent_emp; ?></td>
+                                                <td><?php echo $nomina->nombre_emp; ?></td>
+                                                <td><?php echo $nomina->salario_emp; ?></td>
+                                                <td><?php echo $nomina->dir_emp; ?></td>
+                                                <td><?php echo $nomina->func_med; ?></td>
+                                                <td><?php echo $nomina->exp_med; ?></td>
                                             </tr>
                                             <?php
                                                 }
@@ -138,4 +164,5 @@
         crossorigin="anonymous"></script>
     <!--Propio-->
     <script src="assets/js/script.js"></script>
+
 </body>

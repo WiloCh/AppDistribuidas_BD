@@ -56,6 +56,7 @@ $route['empleado'] = 'cm/listarEmpleados';
 $route['medico'] = 'cm/listarMedicos';
 $route['consultas'] = 'cm/listarConsultas';
 $route['especialidad'] = 'cm/listarEspecialidades';
+$route['nomina'] = 'cm/listarNominas';
 /*$route['medico/eliminar'] = 'citas/eliminarMedico';
 $route['paciente'] = 'citas/paciente';
 $route['paciente/eliminar'] = 'citas/eliminarPaciente';

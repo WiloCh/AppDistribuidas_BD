@@ -71,6 +71,13 @@
                 </div>
             </a>
 
+            <a href="http://localhost/CitasMedicas_Admin/nomina">
+                <div class="option">
+                    <i class="fas fa-user-friends" title="Nominas"></i>
+                    <h5>Nominas</h5>
+                </div>
+            </a>
+
         </div>
 
     </div>
