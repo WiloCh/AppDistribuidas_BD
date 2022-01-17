@@ -16,21 +16,30 @@ class CM extends CI_Controller {
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		$response = json_decode(curl_exec($ch));
+		$empleados = json_decode(curl_exec($ch));
 		curl_close($ch);
+		$url1 = 'https://sucadmin.herokuapp.com/api/centro';
+		$ch1 = curl_init();
+		curl_setopt($ch1, CURLOPT_URL, $url1);
+		curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+		$centros = json_decode(curl_exec($ch1));
+		curl_close($ch1);
 		$datos = [
-			"response" => $response
+			"empleados" => $empleados,
+			"centros" => $centros
 		];
 		$this->load->view('empleado_page', $datos);
 	}
 	public function crearEmpleado()
 	{
+		$cod_centros = $_POST['cod_centros'];
 		$nombre_emp = $_POST['nombre_emp'];
 		$dir_emp = $_POST['dir_emp'];
 		$salario_emp = $_POST['salario_emp'];
 		$fecha_ent_emp = $_POST['fecha_ent_emp'];
 
 		$data = array(
+			"cod_centros" => $cod_centros,
 			"nombre_emp" => $nombre_emp,
 			"dir_emp" => $dir_emp,
 			"salario_emp" => $salario_emp,
@@ -51,6 +60,7 @@ class CM extends CI_Controller {
 	public function editarEmpleado()
 	{
 		$cod_emp = $_POST['cod_emp'];
+		$cod_centros = $_POST['cod_centros'];
 		$nombre_emp = $_POST['nombre_emp'];
 		$dir_emp = $_POST['dir_emp'];
 		$salario_emp = $_POST['salario_emp'];

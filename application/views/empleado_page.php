@@ -114,6 +114,27 @@
                                                             <div class="form-group">
                                                                 <div class="row">
                                                                     <div class="col-4" style="padding:0;">
+                                                                        <label><b>Centro:</b></label>
+                                                                    </div>
+                                                                    <div class="col-8">
+                                                                        <select class="form-select" name="cod_centros" aria-describedby="codempHelp">
+                                                                            <option selected>Seleccione un Centro</option>
+                                                                            <?php
+                                                                                foreach($centros as $centro)
+                                                                                {
+                                                                            ?>
+                                                                            <option value="<?php echo $centro->cod_centros; ?>"><?php echo $centro->cod_centros." - ".$centro->nombre_centros; ?></option>
+                                                                            <?php
+                                                                                }
+                                                                            ?>
+                                                                        </select>
+                                                                        <small id="codempHelp" class="form-text text-muted">Ej: Quito</small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-4" style="padding:0;">
                                                                         <label><b>Nombre Empleado:</b></label>
                                                                     </div>
                                                                     <div class="col-8">
@@ -186,7 +207,7 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                                foreach($response as $empleado)
+                                                foreach($empleados as $empleado)
                                                 {
                                             ?>
                                             <tr id="<?php echo 'filaE_'.$empleado->cod_emp; ?>">
@@ -239,6 +260,27 @@
                                                                         <div class="col-8">
                                                                             <input type="text" class="form-control" name="cod_emp" id="cod_emp" aria-describedby="codHelp" disable>
                                                                             <small id="codHelp" class="form-text text-muted">No Cambiar</small>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="row">
+                                                                        <div class="col-4" style="padding:0;">
+                                                                            <label><b>Centro:</b></label>
+                                                                        </div>
+                                                                        <div class="col-8">
+                                                                            <select class="form-select" name="cod_centros" aria-describedby="codempHelp">
+                                                                                <option selected>Seleccione un Centro</option>
+                                                                                <?php
+                                                                                    foreach($centros as $centro)
+                                                                                    {
+                                                                                ?>
+                                                                                <option value="<?php echo $centro->cod_centros; ?>"><?php echo $centro->cod_centros." - ".$centro->nombre_centros; ?></option>
+                                                                                <?php
+                                                                                    }
+                                                                                ?>
+                                                                            </select>
+                                                                            <small id="codempHelp" class="form-text text-muted">Ej: Quito</small>
                                                                         </div>
                                                                     </div>
                                                                 </div>
